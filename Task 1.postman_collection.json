@@ -1,0 +1,633 @@
+{
+  "info": {
+    "_postman_id": "d3817bd3-5e2b-4df1-8e2b-094271498743",
+    "name": "Task 1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55901299",
+    "_collection_link": "https://go.postman.co/collection/55901299-d3817bd3-5e2b-4df1-8e2b-094271498743?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "create board",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "    var jsonData = pm.response.json();\r",
+              "    pm.environment.set(\"task_board_id\", jsonData.id);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{url_base}}/1/boards/?name={{name_board}}&key={{api_key}}&token={{api_token}}",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "boards",
+            ""
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "{{name_board}}"
+            },
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get a Board",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{url_base}}/1/boards/{{task_board_id}}?key={{api_key}}&token={{api_token}}",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "boards",
+            "{{task_board_id}}"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update a Board",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{url_base}}/1/boards/{{task_board_id}}?key={{api_key}}&token={{api_token}}&name={{name_board_2}}",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "boards",
+            "{{task_board_id}}"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            },
+            {
+              "key": "name",
+              "value": "{{name_board_2}}",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get updated Board",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url_base}}/1/boards/{{task_board_id}}?key={{api_key}}&token={{api_token}}",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "boards",
+            "{{task_board_id}}"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create a new List",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "    var jsonData = pm.response.json();\r",
+              "    pm.environment.set(\"task_list_id\", jsonData.id);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{url_base}}/1/lists?name={{name_list}}&idBoard={{task_board_id}}&key={{api_key}}&token={{api_token}}",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "lists"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "{{name_list}}"
+            },
+            {
+              "key": "idBoard",
+              "value": "{{task_board_id}}"
+            },
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get list",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url_base}}/1/lists/{{task_list_id}}?key={{api_key}}&token={{api_token}}",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "lists",
+            "{{task_list_id}}"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update a List to close",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{url_base}}/1/lists/{{task_list_id}}?key={{api_key}}&token={{api_token}}&closed=true",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "lists",
+            "{{task_list_id}}"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            },
+            {
+              "key": "closed",
+              "value": "true",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get list",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"List is closed\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.closed).to.eql(true);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "packages": {},
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url_base}}/1/lists/{{task_list_id}}?key={{api_key}}&token={{api_token}}",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "lists",
+            "{{task_list_id}}"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update a List to open",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{url_base}}/1/lists/{{task_list_id}}?key={{api_key}}&token={{api_token}}&closed=false",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "lists",
+            "{{task_list_id}}"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            },
+            {
+              "key": "closed",
+              "value": "false"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get list",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"List is closed\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.closed).to.eql(false);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url_base}}/1/lists/{{task_list_id}}?key={{api_key}}&token={{api_token}}",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "lists",
+            "{{task_list_id}}"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create a new Card",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "    var jsonData = pm.response.json();\r",
+              "    pm.environment.set(\"task_card_id\", jsonData.id);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{url_base}}/1/cards?idList={{task_list_id}}&key={{api_key}}&token={{api_token}}&due=2026-07-10T12:00:00Z",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "cards"
+          ],
+          "query": [
+            {
+              "key": "idList",
+              "value": "{{task_list_id}}"
+            },
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            },
+            {
+              "key": "due",
+              "value": "2026-07-10T12:00:00Z"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create a Label",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "https://api.trello.com/1/cards/{{task_card_id}}/labels?name=New&color=red&key={{api_key}}&token={{api_token}}",
+          "protocol": "https",
+          "host": [
+            "api",
+            "trello",
+            "com"
+          ],
+          "path": [
+            "1",
+            "cards",
+            "{{task_card_id}}",
+            "labels"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "New"
+            },
+            {
+              "key": "color",
+              "value": "red"
+            },
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Checklist on a Card",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "    var jsonData = pm.response.json();\r",
+              "    pm.environment.set(\"task_checklist_id\", jsonData.id);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "https://api.trello.com/1/cards/{{task_card_id}}/checklists?key={{api_key}}&token={{api_token}}",
+          "protocol": "https",
+          "host": [
+            "api",
+            "trello",
+            "com"
+          ],
+          "path": [
+            "1",
+            "cards",
+            "{{task_card_id}}",
+            "checklists"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Checkitem on Checklist",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{url_base}}/1/checklists/{{task_checklist_id}}/checkItems?name={{checklist_item_1}}&key={{api_key}}&token={{api_token}}",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "checklists",
+            "{{task_checklist_id}}",
+            "checkItems"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "{{checklist_item_1}}"
+            },
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete a Checklist",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{url_base}}/1/checklists/{{task_checklist_id}}?key={{api_key}}&token={{api_token}}",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "checklists",
+            "{{task_checklist_id}}"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete board",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{url_base}}/1/boards/{{task_board_id}}?key={{api_key}}&token={{api_token}}",
+          "host": [
+            "{{url_base}}"
+          ],
+          "path": [
+            "1",
+            "boards",
+            "{{task_board_id}}"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{api_key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{api_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
